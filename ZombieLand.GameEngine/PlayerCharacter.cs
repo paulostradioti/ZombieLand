@@ -18,38 +18,22 @@ namespace ZombieLand.GameEngine
         public bool IsNoob { get; set; }
         public List<string> Weapons { get; set; }
 
-        public event EventHandler<EventArgs> PlayerSlept;
-
         public PlayerCharacter()
         {
             FirstName = GenerateRandomFirstName();
-
             IsNoob = true;
 
             CreateStartingWeapons();
         }
 
-        public void Sleep()
+        public void Eat()
         {
             var healthIncrease = CalculateHealthIncrease();
-
             Health += healthIncrease;
-
-            OnPlayerSlept(EventArgs.Empty);
         }
 
         private int CalculateHealthIncrease()
-        {
-            var rnd = new Random();
-
-            return rnd.Next(1, 101);
-        }
-
-
-        protected virtual void OnPlayerSlept(EventArgs e)
-        {
-            PlayerSlept?.Invoke(this, e);
-        }
+            => Random.Shared.Next(1, 101);
 
         public void TakeDamage(int damage)
         {
@@ -67,8 +51,7 @@ namespace ZombieLand.GameEngine
                 "Boldrakteethtop"
             };
 
-            return possibleRandomStartingNames[
-                new Random().Next(0, possibleRandomStartingNames.Length)];
+            return possibleRandomStartingNames[Random.Shared.Next(0, possibleRandomStartingNames.Length)];
         }
 
         private void CreateStartingWeapons()
