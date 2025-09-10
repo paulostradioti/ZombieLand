@@ -16,12 +16,14 @@ namespace ZombieLand.GameEngine
             set => _health = value;
         }
         public bool IsNoob { get; set; }
+        public bool IsInfected { get; set; }
         public List<string> Weapons { get; set; }
 
         public PlayerCharacter()
         {
             FirstName = GenerateRandomFirstName();
             IsNoob = true;
+            IsInfected = false;
 
             CreateStartingWeapons();
         }

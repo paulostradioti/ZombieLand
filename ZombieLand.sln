@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36408.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZombieLand.GameEngine", "ZombieLand.GameEngine\ZombieLand.GameEngine.csproj", "{F3EB29D1-C607-4783-BC7F-D25FAC30337F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZombieLand.Tests", "ZombieLand.Tests\ZombieLand.Tests.csproj", "{7DE7C289-AABD-43AD-AE0F-3561AE8D54A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F3EB29D1-C607-4783-BC7F-D25FAC30337F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3EB29D1-C607-4783-BC7F-D25FAC30337F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3EB29D1-C607-4783-BC7F-D25FAC30337F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DE7C289-AABD-43AD-AE0F-3561AE8D54A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DE7C289-AABD-43AD-AE0F-3561AE8D54A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DE7C289-AABD-43AD-AE0F-3561AE8D54A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE7C289-AABD-43AD-AE0F-3561AE8D54A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
