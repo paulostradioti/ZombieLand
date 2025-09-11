@@ -1,18 +1,29 @@
+using Xunit.Abstractions;
 using ZombieLand.GameEngine;
 
 namespace ZombieLand.Tests
 {
     public class PlayerCharacterShould
     {
+        public ITestOutputHelper OutputHelper { get; }
+
+        public PlayerCharacterShould(ITestOutputHelper outputHelper) 
+            => OutputHelper = outputHelper;
+
         #region Booleans
+        //[Fact(Skip = "Precisa de uma melhoria")]
         [Fact]
+        [Trait("Category", "Boolean")]
         public void BeNoobWhenCreated()
         {
+            OutputHelper.WriteLine("Aqui vai uma informacão importante para o log");
+
             var sut = new PlayerCharacter();
             Assert.True(sut.IsNoob);
         }
 
         [Fact]
+        [Trait("Category", "Boolean")]
         public void BeNotInfectedWhenCreated()
         {
             var sut = new PlayerCharacter();
@@ -22,6 +33,7 @@ namespace ZombieLand.Tests
 
         #region Strings
         [Fact]
+        [Trait("Category", "String")]
         public void HaveNonEmptyFirstNameWhenCreated()
         {
             var sut = new PlayerCharacter();
@@ -30,6 +42,7 @@ namespace ZombieLand.Tests
         }
 
         [Fact]
+        [Trait("Category", "String")]
         public void HaveEmptyLastNameWhenCreated()
         {
             var sut = new PlayerCharacter();
@@ -37,6 +50,7 @@ namespace ZombieLand.Tests
         }
 
         [Fact]
+        [Trait("Category", "String")]
         public void HaveCorrectFullName()
         {
             var sut = new PlayerCharacter();
@@ -51,6 +65,7 @@ namespace ZombieLand.Tests
 
 
         [Fact]
+        [Trait("Category", "String")]
         public void HaveNameStartingWithClaire()
         {
             var sut = new PlayerCharacter();
@@ -63,6 +78,7 @@ namespace ZombieLand.Tests
 
 
         [Fact]
+        [Trait("Category", "String")]
         public void HaveNameEndingWithRedfield()
         {
             var sut = new PlayerCharacter();
@@ -74,6 +90,7 @@ namespace ZombieLand.Tests
         }
 
         [Fact]
+        [Trait("Category", "String")]
         public void HaveFullNameContainingSpace()
         {
             var sut = new PlayerCharacter();
@@ -86,6 +103,7 @@ namespace ZombieLand.Tests
 
 
         [Fact]
+        [Trait("Category", "String")]
         public void HaveFullNameStartingWithCapitalLetters()
         {
             var sut = new PlayerCharacter();
