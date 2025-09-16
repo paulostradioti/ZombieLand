@@ -7,7 +7,7 @@ namespace ZombieLand.Tests
     {
         public ITestOutputHelper OutputHelper { get; }
 
-        public PlayerCharacterShould(ITestOutputHelper outputHelper) 
+        public PlayerCharacterShould(ITestOutputHelper outputHelper)
             => OutputHelper = outputHelper;
 
         #region Booleans
@@ -161,7 +161,7 @@ namespace ZombieLand.Tests
         public void HaveOneSwordWhenCreated()
         {
             var sut = new PlayerCharacter();
-            
+
             Assert.Contains(sut.Weapons, weapon => weapon.Contains("sword", StringComparison.OrdinalIgnoreCase));
         }
 
@@ -175,7 +175,7 @@ namespace ZombieLand.Tests
         }
 
         // Passado no lugar do Action (recebe parametro de entrada mas nao tem retorno)
-        private void LancaExcecaoSeForStringEmpty(string obj) 
+        private void LancaExcecaoSeForStringEmpty(string obj)
         {
             if (string.IsNullOrEmpty(obj))
                 throw new Exception();
@@ -186,16 +186,18 @@ namespace ZombieLand.Tests
         {
             var sut = new PlayerCharacter();
 
-            var expectedWeapons = new[] 
-            { 
+            var expectedWeapons = new[]
+            {
                 "Long Bow",
                 "Short Bow",
                 "Short Sword"
             };
 
             // Comparação 1 a 1
-            Assert.Equal(expectedWeapons, sut.Weapons); 
+            Assert.Equal(expectedWeapons, sut.Weapons);
         }
         #endregion
+
+
     }
 }

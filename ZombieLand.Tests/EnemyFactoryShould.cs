@@ -32,27 +32,36 @@ namespace ZombieLand.Tests
         #endregion
 
         #region Exceptions
+
         [Fact]
-        public void ThrowExceptionWhenZombieNameIsNull()
+        public void ThrowExceptionWhenNameIsNull()
         {
+            // Arrange
             var sut = new EnemyFactory();
 
-            Action action = () => sut.Create(null);
+            //Act
+            var createEnemy = () => sut.Create(null);
 
-            Assert.Throws<ArgumentNullException>("name", action);
+            //Assert
+            Assert.Throws<ArgumentException>(createEnemy);
+            Assert.ThrowsAny<Exception>(createEnemy);
         }
         #endregion
 
         #region Exceptions
         [Fact]
-        public void ThrowExceptionWhenZombieBossNameIsInvalid()
+        public void ThrowExceptionWhenBossNameIsInvalid()
         {
+            // Arrange
             var sut = new EnemyFactory();
 
-            Action action = () => sut.Create("Zombie", isBoss: true);
+            //Act
+            var createEnemy = () => sut.Create("Zombie", isBoss: true);
 
-            Assert.Throws<EnemyCreationException>(action);
-            Assert.ThrowsAny<Exception>(action);
+            //Assert
+            Assert.Throws<EnemyCreationException>(createEnemy);
+            Assert.ThrowsAny<DomainException>(createEnemy);
+            Assert.ThrowsAny<Exception>(createEnemy);
         }
         #endregion
     }

@@ -6,10 +6,8 @@ namespace ZombieLand.GameEngine
     {
         public Enemy Create(string name, bool isBoss = false)
         {
-            if (name is null)
-            {
-                throw new ArgumentNullException(nameof(name));
-            }
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException(nameof(name));
 
             #region Checagem Is Boss
             if (isBoss)
