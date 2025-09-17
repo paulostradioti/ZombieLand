@@ -87,7 +87,12 @@ namespace ZombieLand.Tests
             sut.LastName = "redfield";
 
             //Assert.StartsWith("Claire", sut.FullName, StringComparison.OrdinalIgnoreCase);
-            sut.FullName.Should().StartWithEquivalentOf("Claire");
+            //sut.FullName.Should().StartWithEquivalentOf("Claire");
+
+            sut.FullName.Should()
+                .StartWithEquivalentOf("Claire").And
+                .EndWithEquivalentOf("Redfield").And
+                .ContainEquivalentOf(" ");
         }
 
 

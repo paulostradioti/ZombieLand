@@ -1,4 +1,6 @@
-﻿using ZombieLand.GameEngine;
+﻿using FluentAssertions;
+using GameEngine;
+using ZombieLand.GameEngine;
 
 namespace ZombieLand.Tests
 {
@@ -11,8 +13,11 @@ namespace ZombieLand.Tests
             var sut = new EnemyFactory();
             var enemy = sut.Create("Zombie");
 
-            var result = Assert.IsType<NormalEnemy>(enemy);
-            Assert.IsAssignableFrom<Enemy>(enemy);
+            //var result = Assert.IsType<NormalEnemy>(enemy);
+            //Assert.IsAssignableFrom<Enemy>(enemy);
+            enemy.Should().BeOfType<NormalEnemy>();
+            enemy.Should().BeAssignableTo<Enemy>();
+            enemy.Should().NotBeAssignableTo<BossEnemy>();
         }
         #endregion
 
@@ -26,8 +31,10 @@ namespace ZombieLand.Tests
             var enemy2 = sut.Create("Zombie");
 
             // Assert.Same
-            Assert.NotSame(enemy1, enemy2);
-            Assert.False(object.ReferenceEquals(enemy1, enemy2));
+            //Assert.NotSame(enemy1, enemy2);
+            //Assert.False(object.ReferenceEquals(enemy1, enemy2));
+            enemy1.Should().NotBeSameAs(enemy2);
+            enemy1.Should().BeSameAs(enemy1);
         }
         #endregion
 
@@ -59,9 +66,12 @@ namespace ZombieLand.Tests
             var createEnemy = () => sut.Create("Zombie", isBoss: true);
 
             //Assert
-            Assert.Throws<EnemyCreationException>(createEnemy);
-            Assert.ThrowsAny<DomainException>(createEnemy);
-            Assert.ThrowsAny<Exception>(createEnemy);
+            //Assert.Throws<EnemyCreationException>(createEnemy);
+            //Assert.ThrowsAny<DomainException>(createEnemy);
+            //Assert.ThrowsAny<Exception>(createEnemy);
+            
+            createEnemy.Should().Throw<Exception>();
+            createEnemy.Should().ThrowExactly<EnemyCreationException>();
         }
         #endregion
     }
