@@ -1,6 +1,8 @@
 using FluentAssertions;
+using System.Numerics;
 using Xunit.Abstractions;
 using ZombieLand.GameEngine;
+using ZombieLand.Tests.TestData;
 
 namespace ZombieLand.Tests
 {
@@ -233,5 +235,52 @@ namespace ZombieLand.Tests
             sut.Weapons.Should().BeEquivalentTo(expectedWeapons); // Ordem NÃO faz diferença
         }
         #endregion
+
+        [Theory]
+        [InlineData(10, 90)]
+        [InlineData(15, 85)]
+        [InlineData(75, 25)]
+        [InlineData(200, 1)]
+        public void DecreaseHealthWhenTakesDemage(int demage, int expectedHealth)
+        {
+            var sut = new PlayerCharacter();
+
+            sut.TakeDamage(demage);
+
+            sut.Health.Should().Be(expectedHealth);
+        }
+
+        [Theory]
+        [MemberData(nameof(DataForMemberDataTests.GetInternalData), MemberType = typeof(DataForMemberDataTests))]
+        public void DecreaseHealthWhenTakesDemage_WithInternalData(int demage, int expectedHealth)
+        {
+            var sut = new PlayerCharacter();
+
+            sut.TakeDamage(demage);
+
+            sut.Health.Should().Be(expectedHealth);
+        }
+
+        [Theory]
+        [MemberData(nameof(DataForMemberDataTests.Data), MemberType = typeof(DataForMemberDataTests))]
+        public void DecreaseHealthWhenTakesDemage_WithInternalDataViaProperty(int demage, int expectedHealth)
+        {
+            var sut = new PlayerCharacter();
+
+            sut.TakeDamage(demage);
+
+            sut.Health.Should().Be(expectedHealth);
+        }
+
+        [Theory]
+        [MemberData(nameof(DataForMemberDataTests.GetExternalData), MemberType = typeof(DataForMemberDataTests))]
+        public void DecreaseHealthWhenTakesDemage_WithExternalData(int demage, int expectedHealth)
+        {
+            var sut = new PlayerCharacter();
+
+            sut.TakeDamage(demage);
+
+            sut.Health.Should().Be(expectedHealth);
+        }
     }
 }

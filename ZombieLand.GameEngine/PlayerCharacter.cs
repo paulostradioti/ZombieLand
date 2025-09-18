@@ -35,7 +35,7 @@ namespace ZombieLand.GameEngine
         }
 
         private int CalculateHealthIncrease()
-            => Random.Shared.Next(1, 101);
+            => Random.Shared.Next(0, 101);
 
         public void TakeDamage(int damage)
         {
