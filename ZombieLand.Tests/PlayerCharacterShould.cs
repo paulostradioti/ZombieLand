@@ -1,5 +1,4 @@
 using FluentAssertions;
-using System.Numerics;
 using Xunit.Abstractions;
 using ZombieLand.GameEngine;
 using ZombieLand.Tests.TestData;
@@ -22,7 +21,7 @@ namespace ZombieLand.Tests
             OutputHelper.WriteLine("Aqui vai uma informacão importante para o log");
 
             var sut = new PlayerCharacter();
-         
+
             //Assert.True(sut.IsNoob);
             sut.IsNoob.Should().BeTrue();
         }
@@ -209,7 +208,7 @@ namespace ZombieLand.Tests
             //Assert.All(sut.Weapons, LancaExcecaoSeForStringEmpty);
             //Assert.All(sut.Weapons, item => Assert.False(string.IsNullOrWhiteSpace(item)));
             sut.Weapons.Should().OnlyContain(weapon => !string.IsNullOrWhiteSpace(weapon));
-            
+
             void LancaExcecaoSeForStringEmpty(string obj)
             {
                 if (string.IsNullOrEmpty(obj))

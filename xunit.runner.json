@@ -1,0 +1,4 @@
+{
+  "maxParallelThreads": 8, // Set to the desired number of threads
+  "parallelizeTestCollections": true
+}
