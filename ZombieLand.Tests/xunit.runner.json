@@ -1,4 +1,0 @@
-{
-  "maxParallelThreads": 3,
-  "parallelizeTestCollections": true
-}
